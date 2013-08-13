@@ -7,5 +7,6 @@ defmodule Airdnp do
   """
   def start(_type, _args) do
     Airdnp.Dynamo.start_link([max_restarts: 5, max_seconds: 5])
+    Airdnp.Db.Sup.start_link
   end
 end

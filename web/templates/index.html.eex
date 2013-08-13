@@ -12,6 +12,6 @@
     <li>Deploy to production with <code>MIX_ENV=prod mix do compile, server</code></li>
   </ol>
 
-  <%= @users %>
+  <p>LOL: <%= @email %></p>
 </body>
 </html>

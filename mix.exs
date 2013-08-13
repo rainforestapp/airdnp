@@ -17,10 +17,13 @@ defmodule Airdnp.Mixfile do
       mod: { Airdnp, [] } ]
   end
 
-  def deps do
+  defp deps do
     [ { :cowboy, github: "extend/cowboy" },
       { :dynamo, "0.1.0-dev", github: "elixir-lang/dynamo" },
       { :ecto, github: "elixir-lang/ecto" },
-      { :pgsql, github: "semiocast/pgsql" } ]
+      { :pgsql, github: "semiocast/pgsql" },
+      { :httpotion, github: "myfreeweb/httpotion" },
+      { :jsex, github: "talentdeficit/jsex" }
+    ]
   end
 end

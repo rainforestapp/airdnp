@@ -15,7 +15,7 @@ defmodule Airdnp.Dynamo do
     # You can turn off static assets by setting it to false
     static_route: "/static"
 
-  # Cookie sessions
+  # Uncomment the lines below to enable the cookie session store
   config :dynamo,
     session_store: Session.CookieStore,
     session_options:

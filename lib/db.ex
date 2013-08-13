@@ -7,11 +7,18 @@ end
 defmodule Airdnp.Db.User do
   import Ecto.Query
 
-  def user_query do
-    query = from u in Airdnp.User,
-      where: u.email != nil,
+  def find_all do
+    query = from u in Airdnp.Model.User,
       select: u
 
     Airdnp.Db.all(query)
   end
+
+  # def find(id) do
+  #   query = from u in Airdnp.Model.User,
+  #     where: u.id == id,
+  #     select: u
+
+  #   Airdnp.Db.all(query)
+  # end
 end

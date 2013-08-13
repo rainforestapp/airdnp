@@ -1,4 +1,4 @@
-defmodule Airdnp.User do
+defmodule Airdnp.Model.User do
   use Ecto.Entity
 
   dataset "users" do
