@@ -17,7 +17,7 @@ defmodule Airdnp.Mixfile do
       mod: { Airdnp, [] } ]
   end
 
-  def deps do
+  defp deps do
     [ { :cowboy, github: "extend/cowboy" },
       { :dynamo, "0.1.0-dev", github: "elixir-lang/dynamo" },
       { :ecto, github: "elixir-lang/ecto" },
