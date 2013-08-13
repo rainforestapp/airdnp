@@ -3,15 +3,31 @@
 <head>
   <title><%= @title %></title>
   <link rel="shortcut icon" href="/static/favicon.ico" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <h3>Welcome to Dynamo!</h3>
-  <ol>
-    <li>Change this template at <code>web/templates/index.html.eex</code></li>
-    <li>Add new routes at <code>web/routers/application_router.ex</code></li>
-    <li>Deploy to production with <code>MIX_ENV=prod mix do compile, server</code></li>
-  </ol>
 
-  <p>LOL: <%= @email %></p>
 </body>
+</html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+
+    <h3>Welcome to Dynamo!</h3>
+    <ol>
+      <li>Change this template at <code>web/templates/index.html.eex</code></li>
+      <li>Add new routes at <code>web/routers/application_router.ex</code></li>
+      <li>Deploy to production with <code>MIX_ENV=prod mix do compile, server</code></li>
+    </ol>
+
+    <p>LOL: <%= @email %></p>
+  </body>
 </html>
