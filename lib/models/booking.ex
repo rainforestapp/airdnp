@@ -2,9 +2,9 @@ defmodule Airdnp.Model.Booking do
   use Ecto.Entity
 
   dataset "bookings" do
-    field :price, :int
-    field :start_date, :datetime
-    field :end_date, :datetime 
-    field :hotel_id, :int 
+    field :price, :integer
+    field :start_date, :string
+    field :end_date, :string 
+    field :hotel_id, :integer 
   end
 end
