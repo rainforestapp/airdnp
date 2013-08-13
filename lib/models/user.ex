@@ -4,6 +4,7 @@ defmodule Airdnp.Model.User do
   dataset "users" do
     field :name, :string
     field :email, :string
+
     # field :latitude, :float
     # field :longitude, :float
   end

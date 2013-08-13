@@ -23,7 +23,8 @@ defmodule Airdnp.Mixfile do
       { :ecto, github: "elixir-lang/ecto" },
       { :pgsql, github: "semiocast/pgsql" },
       { :httpotion, github: "myfreeweb/httpotion" },
-      { :jsex, github: "talentdeficit/jsex" }
+      { :rebar, github: "rebar/rebar" },
+      { :jsex, github: "talentdeficit/jsex" },
     ]
   end
 end

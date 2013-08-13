@@ -1,4 +1,4 @@
-defmodule Airdnp.Db.Sup do
+defmodule Airdnp.Db.Supervisor do
   use Supervisor.Behaviour
 
   def start_link do
