@@ -13,7 +13,7 @@ defmodule ApplicationRouter do
   # forward "/posts", to: PostsRouter
 
   get "/" do
-    conn = conn.assign(:title, "Welcome to Dynamo!", users: inspect Airdnp.Db.Users.user_query)
+    conn = conn.assign(:title, "Welcome to Dynamo!") #, users: inspect Airdnp.Db.Users.user_query)
     render conn, "index.html"
   end
 end
