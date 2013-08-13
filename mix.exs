@@ -18,7 +18,9 @@ defmodule Airdnp.Mixfile do
   defp deps do
     [
       { :ecto, github: "elixir-lang/ecto" },
-      { :pgsql, github: "semiocast/pgsql" }
+      { :pgsql, github: "semiocast/pgsql" },
+      { :httpotion, github: "myfreeweb/httpotion" },
+      { :jsex, github: "talentdeficit/jsex" }
     ]
   end
 end
