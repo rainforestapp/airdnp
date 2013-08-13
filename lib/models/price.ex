@@ -1,4 +1,4 @@
-defmodule Airdnp.Booking do
+defmodule Airdnp.Model.Booking do
   use Ecto.Entity
 
   dataset "bookings" do

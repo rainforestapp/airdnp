@@ -1,4 +1,4 @@
-defmodule Airdnp.Hotel do
+defmodule Airdnp.Models.Hotel do
   use Ecto.Entity
   
   dataset "hotels" do
