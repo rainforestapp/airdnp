@@ -10,9 +10,9 @@ defmodule Airdnp.Collection.User do
 
   def find(i) do
     query = from p in Airdnp.Model.User,
-      where: p.id == i,
+      where: p.id == ^i,
       select: p
 
-    Airdnp.Db.all(query)
+    hd(Airdnp.Db.all(query))
   end
 end
