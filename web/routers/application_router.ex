@@ -13,9 +13,12 @@ defmodule ApplicationRouter do
   # forward "/posts", to: PostsRouter
 
   get "/" do
-    email = hd(Airdnp.Db.User.find_all).email
     conn = conn.assign(:title, "Welcome to Dynamo!")
-    conn = conn.assign(:email, email)
     render conn, "index.html"
+  end
+
+  post "/query-prices" do
+    user = Airdnp.Db.create(Airdnp.Model.User[name: conn.params[:name], email: conn.params[:email]])
+    conn.resp(200, "Success with user_id=#{user.id}") 
   end
 end
