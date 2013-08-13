@@ -10,3 +10,11 @@ Resources:
 * [Dynamo source code](https://github.com/elixir-lang/dynamo)
 * [Dynamo guides](https://github.com/elixir-lang/dynamo#learn-more)
 * [Dynamo docs](http://elixir-lang.org/docs/dynamo)
+=======
+
+Creating a Heroku app
+
+```
+heroku create --buildpack "https://github.com/goshakkk/heroku-buildpack-elixir.git"
+git push heroku
+```
