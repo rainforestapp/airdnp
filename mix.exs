@@ -2,15 +2,19 @@ defmodule Airdnp.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :airdnp,
+    [
+      app: :airdnp,
       version: "0.0.1",
       elixir: "~> 0.10.1",
-      deps: deps ]
+      deps: deps
+    ]
   end
 
   # Configuration for the OTP application
   def application do
-    []
+    [
+      mod: { Airdnp.App, [] }
+    ]
   end
 
   # Returns the list of dependencies in the format:
