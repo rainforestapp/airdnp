@@ -7,8 +7,13 @@ defmodule ApplicationRouterTest do
   # need to set the @endpoint to the router under test.
   @endpoint ApplicationRouter
 
-  test "returns OK" do
+  test "index returns 200" do
     conn = get("/")
+    assert conn.status == 200
+  end
+
+  test "index returns 200" do
+    conn = get("/query-prices")
     assert conn.status == 200
   end
 end

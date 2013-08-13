@@ -1,5 +1,4 @@
 # Airdnp
-
 This is a project built with Elixir that uses Dynamo to serve web requests.
 
 Resources:
@@ -10,7 +9,9 @@ Resources:
 * [Dynamo source code](https://github.com/elixir-lang/dynamo)
 * [Dynamo guides](https://github.com/elixir-lang/dynamo#learn-more)
 * [Dynamo docs](http://elixir-lang.org/docs/dynamo)
-=======
+
+Dependencies:
+  `brew install rebar`
 
 Creating a Heroku app
 
