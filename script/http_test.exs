@@ -93,10 +93,10 @@ end
 defmodule DealPersister do
   def persist(zip_code, start_date, search_id) do
     Enum.each(DealRetriever.deals_for_zipcode(zip_code, start_date), fn(deal) -> 
-      Airdnp.Db.create(Airdnp.Model.Deal[zip_code: zip_code,start_date: start_date, price: elem(String.to_integer(deal.price), 0), search_id: search_id])
+      Airdnp.Db.create(Airdnp.Model.Deal[zip_code: elem(String.to_integer(zip_code), 0),start_date: start_date, price: elem(String.to_integer(deal.price), 0), search_id: search_id])
     end)
   end
-  
+
   def make_search(zip_code) do
     date = :erlang.date()
     formatted_date = "#{elem date, 1}/#{elem date, 2}/#{elem date, 0}" 
@@ -104,8 +104,21 @@ defmodule DealPersister do
   end
 end
 
-zip_code = 94117
-start_date = "08/27/2013"
+zip_codes = Airdnp.Collection.User.zip_codes
 
-search_id = DealPersister.make_search(94117).id
-DealPersister.persist(zip_code, start_date, search_id)
+today = Eldate.today()
+dates = Enum.map(Range[first: 0, last: 15], fn(num) ->
+  Eldate.shift(today, num, :day)
+end)
+
+formatted_dates = Enum.map(dates, fn(date) -> 
+  "#{elem date, 1}/#{elem date, 2}/#{elem date, 0}"
+end)
+
+Enum.each(zip_codes, fn(zip_code) ->
+  Enum.each(formatted_dates, fn(date) ->
+    search_id = DealPersister.make_search(elem String.to_integer(zip_code), 0).id
+    DealPersister.persist(zip_code, date, search_id)
+    :timer.sleep(1000)
+  end)
+end)
