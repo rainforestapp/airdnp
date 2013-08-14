@@ -26,6 +26,7 @@ defmodule Airdnp.Mixfile do
       { :rebar, github: "rebar/rebar" },
       { :jsex, github: "talentdeficit/jsex" },
       { :elixir_smtp, github: "rainforestapp/elixir_smtp" },
+      { :eldate, github: "rainforestapp/eldate" },
     ]
   end
 end
