@@ -23,9 +23,7 @@ defmodule ApplicationRouter do
       price = elem(String.to_integer(conn.params[:price]),0)
       user = Airdnp.Db.create(Airdnp.Model.User[zip_code: conn.params[:zip_code], price: price, email: conn.params[:email]])
       
-      Airdnp.Db.find_all(Airdnp.Model.Search[zip_code: conn.params[:zip_code]]) 
-      
-      conn.resp(200, "Success with user_id=#{user.id}") 
+      conn.resp(200, "Thanks, we'll email you soon.") 
     else
       conn.resp(200, "Failed, invalid params")
     end
