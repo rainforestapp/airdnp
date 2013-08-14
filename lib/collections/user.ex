@@ -15,4 +15,8 @@ defmodule Airdnp.Collection.User do
 
     hd(Airdnp.Db.all(query))
   end
+
+  def zip_codes do
+    Airdnp.Db.all(from user in Airdnp.Model.User, select: user.zip_code) 
+  end
 end
