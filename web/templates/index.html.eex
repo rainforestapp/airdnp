@@ -13,18 +13,20 @@
     <div class="row" style="width:1200;margin:0 auto;">
       <div class="span8 offset2">
         <h1 style="text-align:center;">AirBNB DyNamic Pricing</h1>
-        <p>
-          Not sure what to charge your AirBNB guests? Then you have come to right place. We will go through local hotel listings and give you a estimated price per night for your Zip Code!
-        </p>
-        <form method="post" action="/query-prices" >
+        <p>Not sure what to charge your AirBNB guests or when to up the price? Then you have come to right place.
+        <p>We will go through local hotel listings and give you a estimated price per night for your Zip Code every few days!
+
+        <form method="post" action="/signup" >
           <legend>Sign up</legend>
           <fieldset>
             <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" name="name" />
+              <label for="email">Email</label><input type="email" name="email" placeholder="Your email" />
             </div>
             <div class="form-group">
-              <label for="email">Email</label><input type="text" name="email" />
+              <label for="zipcode">Zipcode</label><input type="text" name="zip_code" pattern="(\d{5}([\-]\d{4})?)" placeholder="Zipcode of the AirBNB" />
+            </div>
+            <div class="form-group">
+              <label for="price">Price (USD/night)</label><input type="number" min="1" max="9999" step="1" size="4" name="price" placeholder="Your base price on AirBNB" />
             </div>
             <input type="submit" class="btn btn-primary" value="Sign up" />
           </fieldset>
