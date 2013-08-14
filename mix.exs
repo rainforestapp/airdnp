@@ -25,6 +25,7 @@ defmodule Airdnp.Mixfile do
       { :httpotion, github: "myfreeweb/httpotion" },
       { :rebar, github: "rebar/rebar" },
       { :jsex, github: "talentdeficit/jsex" },
+      { :elixir_smtp, github: "rainforestapp/elixir_smtp" },
     ]
   end
 end
