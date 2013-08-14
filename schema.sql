@@ -4,18 +4,32 @@ CREATE DATABASE airdnp;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email character varying(255) NOT NULL,
-  name character varying(255) NOT NULL
+  zip_code character varying(255) NOT NULL,
+  price integer NOT NULL
 );
 
-CREATE TABLE hotels (
+CREATE TABLE deals (
   id SERIAL PRIMARY KEY,
-  name character varying(255) NOT NULL,
-  longitude float NOT NULL,
-  latitude float NOT NULL
+  search_id integer NOT NULL,
+  zip_code character varying(255) NOT NULL,
+  start_date date NOT NULL,
+  price integer NOT NULL,
+  found_date date,
+  currency_code character varying(255),
+  night_duration integer,
+  headline character varying(255),
+  is_weekend_stay boolean,
+  city character varying(255),
+  state_code character varying(255),
+  country_code character varying(255),
+  neighborhood_latitude float,
+  neighborhood_longitude float,
+  neighborhood character varying(255),
+  star_rating integer
 );
 
-CREATE TABLE bookings (
+CREATE TABLE searches (
   id SERIAL PRIMARY KEY,
-  start_date timestamp NOT NULL,
-  end_date timestamp NOT NULL
-);
+  zip_code character varying(255) NOT NULL,
+  search_date date NOT NULL
+)
