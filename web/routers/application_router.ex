@@ -18,7 +18,7 @@ defmodule ApplicationRouter do
   end
 
   get "/mail" do
-    deals = Airdnp.Db.all("
+    deals = :pgsql.simple_query("
       SELECT AVG(price) as avg,
              MAX(price) as max,
              MIN(price) as min,
@@ -31,7 +31,7 @@ defmodule ApplicationRouter do
       ORDER BY start_date
     ")
 
-    global_deals = hd(Airdnp.Db.all("
+    global_deals = pgsql.simple_query("
       SELECT AVG(price) as avg,
              MAX(price) as max,
              MIN(price) as min,
