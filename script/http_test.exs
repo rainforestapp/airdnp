@@ -1,3 +1,10 @@
+defmodule RawSQL do
+  import Ecto.Adapters.Postgres
+  
+  def execute(sql) do
+    query(Airdnp.Db, sql)
+  end
+end
 
 defmodule Hotwire do
   use HTTPotion.Base
