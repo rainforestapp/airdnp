@@ -122,10 +122,43 @@ formatted_dates = Enum.map(dates, fn(date) ->
   "#{elem date, 1}/#{elem date, 2}/#{elem date, 0}"
 end)
 
+
 Enum.each(zip_codes, fn(zip_code) ->
+  search_id = DealPersister.make_search(elem String.to_integer(zip_code), 0).id
   Enum.each(formatted_dates, fn(date) ->
-    search_id = DealPersister.make_search(elem String.to_integer(zip_code), 0).id
-    DealPersister.persist(zip_code, date, search_id)
-    :timer.sleep(1000)
+    #DealPersister.persist(zip_code, date, search_id)
+    #:timer.sleep(1000)
+  end)
+  sql = "   
+    SELECT AVG(price)::int as avg,
+             MAX(price) as max,
+             MIN(price) as min,
+             start_date
+
+      
+      FROM deals
+      WHERE search_id = #{search_id} 
+      GROUP BY start_date
+      ORDER BY start_date
+   "
+   deals = RawSQL.execute(sql)
+   rows = Enum.map(elem(RawSQL.execute(sql), 1), fn(deal) -> {elem(deal, 0), elem(deal, 1), elem(deal, 2), elem(deal, 3)}end)
+   final_string = Enum.join(Enum.map(rows, fn(row) -> "#{elem(elem(row, 3),1)}/#{elem(elem(row,3),2)}/#{elem(elem(row,3),0)},#{elem(row,0)},#{elem(row,1)},#{elem(row,2)}"end), "\n")
+   
+   message = "
+      Psst!,
+
+      We heard your looking to dynamically adjust your AirBNB rates. Based on our mathematical, algebraic and psychological homework we have determined the following:
+
+      Day      | Average | Highest | Lowest |
+      ======================================|
+      #{final_string}
+
+      Your friend,
+      Brain Chastity
+    "
+
+  Enum.each(Airdnp.Db.all(Airdnp.Collection.User.emails(zip_code)), fn(email) ->
+    ElixirSmtp.send!('russ@yourmum.biz', email, 'AirDNP Pricing', message, 'post.c--h.co.uk', 'russ@yourmum.biz', 'THISISAPASSWORD')
   end)
 end)
