@@ -20,7 +20,8 @@ defmodule ApplicationRouter do
   post "/signup" do
     params_valid = Enum.reduce([:email, :zip_code, :price], true, fn(param, acc) -> !!conn.params[param] && acc end)
     if params_valid do
-      user = Airdnp.Db.create(Airdnp.Model.User[zip_code: conn.params[:zip_code], price: conn.params[:price], email: conn.params[:email]])
+      price = elem(String.to_integer(conn.params[:price]),0)
+      user = Airdnp.Db.create(Airdnp.Model.User[zip_code: conn.params[:zip_code], price: price, email: conn.params[:email]])
       
       Airdnp.Db.find_all(Airdnp.Model.Search[zip_code: conn.params[:zip_code]]) 
       
